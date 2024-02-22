@@ -2,7 +2,7 @@ const client = require('../middleware/connection')
 
 const setUser = (data) => {
     const ip = data.ip
-    const name = data.name
+    // const name = data.name
     const time = data.time
     const tokenSize = data.tokenSize
 
@@ -11,7 +11,7 @@ const setUser = (data) => {
         try{
             const lastAccessTime = await client.hGet(key, "time")
             const currTokenSize = await client.hGet(key, "tokenSize")
-            await client.hSet(key, "name", name)
+            // await client.hSet(key, "name", name)
             const timeGap = time - lastAccessTime
             console.log(lastAccessTime)
             if(lastAccessTime == null || currTokenSize == null){
@@ -30,7 +30,7 @@ const setUser = (data) => {
             else if(currTokenSize === "0"){
                 console.log("this hapen2")
 
-                reject("Rate Limit Exceeded Sir!")
+                reject("Rate Limit Exceeded Paa!")
             } 
             
             // if neither just reduce the token size by 1
@@ -55,4 +55,18 @@ const userData = {
     tokenSize : 5
 }
 
-setUser(userData)
+class User{
+    constructor(ip, time, tokenSize){
+        this.ip = ip
+        // this.name = name
+        this.time = time
+        this.tokenSize = tokenSize
+    }
+}
+
+
+module.exports = {
+    User,
+    setUser
+}
+// setUser(userData)

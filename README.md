@@ -13,4 +13,6 @@ All you have to do is
 7. open localhost:8001 to visualize the redis db
 8. open locahost:4000 and hit end points like
        localhost:4000/rate-limit
-       localhost:4000/rate-limit
+       localhost:4000/rate-limit/lightEndPoint
+   and observer that the token size reduces for the user and hits the "rate limit exceeded" log which is again refreshed in a minute
+   

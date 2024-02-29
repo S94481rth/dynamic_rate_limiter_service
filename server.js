@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
+const availableServersRoutes = require("./server/routes/availableServersRoutes")
+app.use("/available-servers", availableServersRoutes)
+
 const rateLimiterRoutes = require('./server/routes/rateLimiterRoutes')
 app.use("/rate-limit", rateLimiterRoutes)
 

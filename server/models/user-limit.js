@@ -30,7 +30,7 @@ const setUser = (data) => {
             else if(currTokenSize === "0"){
                 console.log("this hapen2")
 
-                reject("Rate Limit Exceeded Paa!")
+                reject("Rate Limit Exceeded !!")
             } 
             
             // if neither just reduce the token size by 1

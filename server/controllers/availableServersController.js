@@ -1,4 +1,12 @@
+let servers = require("../utilities/Servers")
+let parseInput = require("../utilities/parseStringServers").parseInput
+
 exports.printAvailableServers = (req,res) =>{
-    console.log("yo man this is the data i got : " + req.body.arrayBody)
-    res.end("i have made a note of the available servers dyoode")
+    arrayServersString = req.body.arrayBody
+    let arrayOfURLS = parseInput(arrayServersString)
+    // un comment later important
+    console.log(typeof(arrayOfURLS))
+    console.log(arrayOfURLS)    
+    servers.setServers(arrayOfURLS)
+    res.end("i have made a note of the available servers ")
 }

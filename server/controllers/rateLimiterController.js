@@ -5,6 +5,7 @@ require('dotenv').config()
 
 
 exports.welcome = async (req, res) => {
+    console.log(req.backendServerURL)
     console.log("yennaya avoid panrangalaan!!")
     res.json({msg : "varta maame durr!"})
 }
